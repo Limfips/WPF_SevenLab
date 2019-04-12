@@ -1,0 +1,17 @@
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\bin\Debug\MainSolution.exe.config
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\bin\Debug\MainSolution.exe
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\bin\Debug\MainSolution.pdb
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\bin\Debug\WpfAnimatedGif.dll
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\bin\Debug\WpfAnimatedGif.xml
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.csprojAssemblyReference.cache
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainWindow.baml
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainWindow.g.cs
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\App.g.cs
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution_MarkupCompile.cache
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.g.resources
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.Properties.Resources.resources
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.csproj.GenerateResource.cache
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.csproj.CoreCompileInputs.cache
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.csproj.CopyComplete
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.exe
+E:\WPF_projects\FirstVersion\MainSolution\MainSolution\obj\Debug\MainSolution.pdb

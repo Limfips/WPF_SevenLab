@@ -1,0 +1,17 @@
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\bin\Debug\WPF_SevenLab.exe.config
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\bin\Debug\WPF_SevenLab.exe
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\bin\Debug\WPF_SevenLab.pdb
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\bin\Debug\WpfAnimatedGif.dll
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\bin\Debug\WpfAnimatedGif.xml
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.csprojAssemblyReference.cache
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\MainWindow.baml
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\MainWindow.g.cs
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\App.g.cs
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab_MarkupCompile.cache
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.g.resources
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\MainSolution.Properties.Resources.resources
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.csproj.GenerateResource.cache
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.csproj.CoreCompileInputs.cache
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.csproj.CopyComplete
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.exe
+E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.pdb
