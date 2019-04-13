@@ -1,2 +1,2 @@
-# WPF_SevenLab
-Моя лабораторная
+п»ї# WPF_SevenLab
+Hello!
