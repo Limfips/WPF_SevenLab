@@ -1,29 +1,54 @@
 using System;
+using System.Collections.Generic;
 
-namespace FirstVersionProject_firstLab.CandidatesAndFirms
+namespace MainSolution.CandidatesAndFirms
 {
     public class CandidatesClass
     {
-        public Candidate[] Candidates =
+        private Candidate[] _candidates =
         {
-            new Candidate("Егор","Борисов",
-                Candidate.PropertyList.Wealthy | 
-                Candidate.PropertyList.Smart | 
-                Candidate.PropertyList.Greedy),
-            new Candidate("Данил","Уфасов",
-                Candidate.PropertyList.Wealthy | 
-                Candidate.PropertyList.Kind | 
-                Candidate.PropertyList.Lazy),
-            new Candidate("Федор","Умков",
-                Candidate.PropertyList.Kind | 
-                Candidate.PropertyList.Wealthy | 
-                Candidate.PropertyList.Wicked)
+            new Candidate("Егор", "Борисов",
+                Candidate.Properties.Wealthy |
+                Candidate.Properties.Smart |
+                Candidate.Properties.Greedy),
+            new Candidate("Данил", "Уфасов",
+                Candidate.Properties.Wealthy |
+                Candidate.Properties.Kind |
+                Candidate.Properties.Lazy),
+            new Candidate("Федор", "Умков",
+                Candidate.Properties.Kind |
+                Candidate.Properties.Wealthy |
+                Candidate.Properties.Wicked),
+            new Candidate("Бог","Богов", Candidate.Properties.Smart |
+                                                                    Candidate.Properties.Lazy,
+                                                                    Firm.WorkingConditions.BigSalary), 
+            new Candidate("Бог","Богов", Candidate.Properties.Smart |
+                                                                    Candidate.Properties.Kind)
         };
-
-        public void AddCandidete(Candidate candidate)
+        
+        public Candidate[] GetCandidates()
         {
-            Array.Resize(ref Candidates, Candidates.Length+1);
-            Candidates[Candidates.Length-1] = candidate;
+            return _candidates;
+        }
+
+        public List<Candidate> SearchByCriterion(Candidate.Properties? propertiesD, 
+                                                    Candidate.Properties? propertiesUd,
+                                                    Firm.WorkingConditions? workingConditions)
+        {
+            var candidates = new List<Candidate>();
+
+            foreach (var candidate in _candidates)
+            {
+                var tmpD = propertiesD & candidate.GetProperties();
+                var tmpWc = workingConditions & candidate.GetWorkingConditions();
+                if (tmpD == propertiesD && tmpWc == candidate.GetWorkingConditions() &&
+                    (~candidate.GetProperties() & propertiesUd) == propertiesUd)
+                {
+                    candidates.Add(candidate);
+                }
+            }
+
+            return candidates;
         }
     }
 }

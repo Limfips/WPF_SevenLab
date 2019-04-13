@@ -4,7 +4,6 @@ namespace FirstProjectWpfApplication
 {
     public class Test
     {
-
         public string MainTest()
         {
             string result;
@@ -12,13 +11,13 @@ namespace FirstProjectWpfApplication
             DreamProperties pattern;
             person = new Person("Петров");
             person.Properties = DreamProperties.Умный | DreamProperties.Добрый;
-            string str = person.Properties.ToString();
+            var str = person.Properties.ToString();
             result = "Свойства персоны: " + str;
             pattern = DreamProperties.Богатый | DreamProperties.Умный;
             str = pattern.ToString();
             result += "\nСвойства образца: " + str;
 
-            DreamProperties temp = person.Properties & pattern;
+            var temp = person.Properties & pattern;
             bool query1, query2, query3, query4, query5;
 
             //Все свойства образца
@@ -48,9 +47,8 @@ namespace FirstProjectWpfApplication
 
         public string SecontTest()
         {
-            
-            string result = "";
-            Person[] persons = new Person[5];
+            var result = "";
+            var persons = new Person[5];
             persons[0] = new Person("Петров");
             persons[0].Properties = DreamProperties.Умный | DreamProperties.Добрый;
             persons[1] = new Person("Фролов");
@@ -62,24 +60,22 @@ namespace FirstProjectWpfApplication
             persons[4] = new Person("Иванов");
             persons[4].Properties = DreamProperties.Добрый;
 
-            Person newPerson = FindOnePerson(persons,DreamProperties.Богатый | DreamProperties.Умный);
+            var newPerson = FindOnePerson(persons, DreamProperties.Богатый | DreamProperties.Умный);
 
-            if (newPerson!=null)
-            {
-                result = newPerson.Fam;
-            }
-            
+            if (newPerson != null) result = newPerson.Fam;
+
             return result;
         }
 
         private Person FindOnePerson(Person[] persons, DreamProperties pattern)
         {
-            foreach (Person person in persons)
+            foreach (var person in persons)
                 if ((person.Properties & pattern) == pattern)
                     return person;
             return null;
         }
     }
+
     [Flags]
     public enum DreamProperties
     {
@@ -87,19 +83,11 @@ namespace FirstProjectWpfApplication
         Добрый = 2,
         Богатый = 4
     }
+
     public class Person
     {
-        public DreamProperties Properties;
         private string _fam = "";
-
-        public string Fam
-        {
-            set
-            {
-                if (_fam == "") _fam = value;
-            }
-            get { return (_fam); }
-        }
+        public DreamProperties Properties;
 
         public Person()
         {
@@ -107,24 +95,35 @@ namespace FirstProjectWpfApplication
 
         public Person(string fam)
         {
-            this._fam = fam;
+            _fam = fam;
+        }
+
+        public string Fam
+        {
+            set
+            {
+                if (_fam == "") _fam = value;
+            }
+            get => _fam;
         }
     }
 
-    class TestTime
+    internal class TestTime
     {
-        public  object GetTime()
+        public delegate double DtoD(double arg1);
+
+        public object GetTime()
         {
             return 0L;
         }
-        public delegate double DtoD(double arg1);
+
         public double EvalTimeDtoD(int count, DtoD fun, double
             x)
         {
             DateTime start, finish;
             double res;
             start = DateTime.Now;
-            for (int i = 1; i < count; i++)
+            for (var i = 1; i < count; i++)
                 fun(x);
             finish = DateTime.Now;
             res = (finish - start).Milliseconds;

@@ -67,6 +67,8 @@
         <Compile Include="CandidatesAndFirms\Firm.cs" />
         <Compile Include="CandidatesAndFirms\Firms.cs" />
         <Compile Include="InterimCods\Test.cs" />
+        <Compile Include="Logic\IInquiryFirm.cs" />
+        <Compile Include="Logic\CRequest.cs" />
         <Compile Include="MainWindow.xaml.cs">
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>

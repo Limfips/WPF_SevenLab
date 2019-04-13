@@ -1,32 +1,50 @@
 using System;
 
-namespace FirstVersionProject_firstLab.CandidatesAndFirms
+namespace MainSolution.CandidatesAndFirms
 {
     public class Firm
     {
-        public string CompanyName { get; }
-        private Candidate[] _candidates;
-        public Candidate.PropertyList DesiredPropertyList { get; }
-        public Candidate.PropertyList UndesirablePropertyList { get; }
-        public ConditionsList? Conditions { get; }
-
-        public Firm(string companyName, Candidate.PropertyList desiredPropertyList, 
-                    ConditionsList? conditions, Candidate.PropertyList undesirablePropertyList, 
-                    Candidate[] candidates = null)
-        {
-            CompanyName = companyName;
-            _candidates = candidates;
-            DesiredPropertyList = desiredPropertyList;
-            Conditions = conditions;
-            UndesirablePropertyList = undesirablePropertyList;
-        }
         [Flags]
-        public enum ConditionsList
+        public enum WorkingConditions
         {
             ConvenientSchedule = 1,
             BigSalary = 2,
             CloseToHome = 4,
             ComfortableOffice = 8
+        }
+
+        private readonly string _companyName;
+        private readonly Candidate.Properties _desiredProperties;
+        private readonly Candidate.Properties _undesirableProperties;
+        private readonly WorkingConditions? _workingConditions;
+
+        public Firm(string companyName, Candidate.Properties desiredProperties,
+            WorkingConditions? workingConditions, Candidate.Properties undesirableProperties)
+        {
+            _companyName = companyName;
+            _desiredProperties = desiredProperties;
+            _workingConditions = workingConditions;
+            _undesirableProperties = undesirableProperties;
+        }
+
+        public string GetCompanyName()
+        {
+            return _companyName;
+        }
+
+        public Candidate.Properties GetDesiredProperties()
+        {
+            return _desiredProperties;
+        }
+
+        public Candidate.Properties GetUndesirableProperties()
+        {
+            return _undesirableProperties;
+        }
+
+        public WorkingConditions? GetWorkingConditions()
+        {
+            return _workingConditions;
         }
     }
 }
