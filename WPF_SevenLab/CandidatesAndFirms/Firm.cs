@@ -16,14 +16,14 @@ namespace MainSolution.CandidatesAndFirms
         private readonly string _companyName;
         private readonly Candidate.Properties _desiredProperties;
         private readonly Candidate.Properties _undesirableProperties;
-        private readonly WorkingConditions? _workingConditions;
+        private readonly WorkingConditions? _propertiesFirm;
 
         public Firm(string companyName, Candidate.Properties desiredProperties,
-            WorkingConditions? workingConditions, Candidate.Properties undesirableProperties)
+            WorkingConditions? propertiesFirm, Candidate.Properties undesirableProperties)
         {
             _companyName = companyName;
             _desiredProperties = desiredProperties;
-            _workingConditions = workingConditions;
+            _propertiesFirm = propertiesFirm;
             _undesirableProperties = undesirableProperties;
         }
 
@@ -44,7 +44,7 @@ namespace MainSolution.CandidatesAndFirms
 
         public WorkingConditions? GetWorkingConditions()
         {
-            return _workingConditions;
+            return _propertiesFirm;
         }
     }
 }

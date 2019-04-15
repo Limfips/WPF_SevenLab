@@ -4,6 +4,7 @@ namespace MainSolution.CandidatesAndFirms
 {
     public class Candidate
     {
+        //properties
         [Flags]
         public enum Properties
         {
@@ -16,19 +17,19 @@ namespace MainSolution.CandidatesAndFirms
             Wicked = 32
         }
 
-        //properties
+        
         private readonly string _fName;
-        private readonly Properties? _properties;
         private readonly string _sName;
-        private readonly Firm.WorkingConditions? _workingConditions;
+        private readonly Properties? _propertiesCandidate;
+        private readonly Firm.WorkingConditions? _propertiesFirm;
 
         public Candidate(string fName, string sName,
-            Properties? properties, Firm.WorkingConditions? workingConditions = null)
+            Properties? propertiesCandidate, Firm.WorkingConditions? propertiesFirm = null)
         {
             _fName = fName;
             _sName = sName;
-            _properties = properties;
-            _workingConditions = workingConditions;
+            _propertiesCandidate = propertiesCandidate;
+            _propertiesFirm = propertiesFirm;
         }
 
         public string GetName()
@@ -36,14 +37,14 @@ namespace MainSolution.CandidatesAndFirms
             return _sName + " " + _fName;
         }
 
-        public Properties? GetProperties()
+        public Properties? GetPropertiesCandidate()
         {
-            return _properties;
+            return _propertiesCandidate;
         }
         
-        public Firm.WorkingConditions? GetWorkingConditions()
+        public Firm.WorkingConditions? GetPropertiesFirm()
         {
-            return _workingConditions;
+            return _propertiesFirm;
         }
     }
 }

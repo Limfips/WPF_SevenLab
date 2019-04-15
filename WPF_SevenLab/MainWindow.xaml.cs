@@ -52,7 +52,7 @@ namespace MainSolution
             request.SetInquiry(new AddWicked());
             properties = request.ExecuteOperation(properties, WickedCheckBox.IsChecked);
             var candidate = new Candidate(FNameTextBox.Text, SNameTextBox.Text, properties);
-            var firms = new Firms().SearchByCriterion(candidate.GetProperties());
+            var firms = new Firms().SearchByCriterion(candidate.GetPropertiesCandidate());
 
             foreach (var firm in firms) FirmsListBox.Items.Add(firm.GetCompanyName());
         }
@@ -90,7 +90,7 @@ namespace MainSolution
             requestC.SetInquiry(new AddWicked());
             propertiesUd = requestC.ExecuteOperation(propertiesUd, FWickedCheckBox.IsChecked);
             
-            var candidates = new CandidatesClass().SearchByCriterion(propertiesD,propertiesUd,workingConditions);  
+            var candidates = new Candidates().SearchByCriterion(propertiesD,propertiesUd,workingConditions);  
             
             foreach (var candidate in candidates) CandidatesListBox.Items.Add(candidate.GetName());
 

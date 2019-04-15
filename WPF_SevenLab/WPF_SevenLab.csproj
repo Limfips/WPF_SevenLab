@@ -63,7 +63,7 @@
             <SubType>Code</SubType>
         </Compile>
         <Compile Include="CandidatesAndFirms\Candidate.cs" />
-        <Compile Include="CandidatesAndFirms\CandidatesClass.cs" />
+        <Compile Include="CandidatesAndFirms\Candidates.cs" />
         <Compile Include="CandidatesAndFirms\Firm.cs" />
         <Compile Include="CandidatesAndFirms\Firms.cs" />
         <Compile Include="InterimCods\Test.cs" />

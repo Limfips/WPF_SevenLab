@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace MainSolution.CandidatesAndFirms
 {
-    public class CandidatesClass
+    public class Candidates
     {
-        private Candidate[] _candidates =
+        private readonly Candidate[] _candidates =
         {
             new Candidate("Егор", "Борисов",
                 Candidate.Properties.Wealthy |
@@ -25,24 +25,18 @@ namespace MainSolution.CandidatesAndFirms
             new Candidate("Бог","Богов", Candidate.Properties.Smart |
                                                                     Candidate.Properties.Kind)
         };
-        
-        public Candidate[] GetCandidates()
-        {
-            return _candidates;
-        }
 
-        public List<Candidate> SearchByCriterion(Candidate.Properties? propertiesD, 
-                                                    Candidate.Properties? propertiesUd,
-                                                    Firm.WorkingConditions? workingConditions)
+        public List<Candidate> SearchByCriterion(Candidate.Properties? desiredProperties, 
+                                                    Candidate.Properties? undesirableProperties,
+                                                    Firm.WorkingConditions? propertiesFirm)
         {
             var candidates = new List<Candidate>();
 
             foreach (var candidate in _candidates)
             {
-                var tmpD = propertiesD & candidate.GetProperties();
-                var tmpWc = workingConditions & candidate.GetWorkingConditions();
-                if (tmpD == propertiesD && tmpWc == candidate.GetWorkingConditions() &&
-                    (~candidate.GetProperties() & propertiesUd) == propertiesUd)
+                if ((desiredProperties & candidate.GetPropertiesCandidate()) == desiredProperties &&
+                    (propertiesFirm & candidate.GetPropertiesFirm()) == candidate.GetPropertiesFirm() &&
+                    (~candidate.GetPropertiesCandidate() & undesirableProperties) == undesirableProperties)
                 {
                     candidates.Add(candidate);
                 }

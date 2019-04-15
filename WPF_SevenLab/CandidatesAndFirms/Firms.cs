@@ -6,31 +6,25 @@ namespace MainSolution.CandidatesAndFirms
     {
         private readonly Firm[] _firms =
         {
-            new Firm("ЕфимоваДолина", Candidate.Properties.Wealthy
-                                      | Candidate.Properties.Smart, Firm.WorkingConditions.ComfortableOffice |
-                                                                    Firm.WorkingConditions.ConvenientSchedule,
-                Candidate.Properties.Lazy |
-                Candidate.Properties.Wicked),
-            new Firm("Фабрика Аляшка", Candidate.Properties.Smart
-                                       | Candidate.Properties.Kind, Firm.WorkingConditions.BigSalary,
-                Candidate.Properties.Wicked),
+            new Firm("ЕфимоваДолина", Candidate.Properties.Wealthy |
+                     Candidate.Properties.Smart,Firm.WorkingConditions.ComfortableOffice |
+                     Firm.WorkingConditions.ConvenientSchedule,Candidate.Properties.Lazy |
+                     Candidate.Properties.Wicked),
+            new Firm("Фабрика Аляшка", Candidate.Properties.Smart |
+                     Candidate.Properties.Kind, Firm.WorkingConditions.BigSalary,
+                     Candidate.Properties.Wicked),
             new Firm("Завод Курым", Candidate.Properties.Wealthy,
-                Firm.WorkingConditions.CloseToHome |
-                Firm.WorkingConditions.BigSalary,
-                Candidate.Properties.Greedy),
-            new Firm("Аэропорт Пулков", Candidate.Properties.Kind
-                                        | Candidate.Properties.Wealthy,
-                Firm.WorkingConditions.ComfortableOffice |
-                Firm.WorkingConditions.CloseToHome,
-                Candidate.Properties.Lazy),
+                     Firm.WorkingConditions.CloseToHome | Firm.WorkingConditions.BigSalary,
+                     Candidate.Properties.Greedy),
+            new Firm("Аэропорт Пулков", Candidate.Properties.Kind |
+                     Candidate.Properties.Wealthy,Firm.WorkingConditions.ComfortableOffice |
+                     Firm.WorkingConditions.CloseToHome,Candidate.Properties.Lazy),
             new Firm("Школа №2", Candidate.Properties.Wealthy,
-                Firm.WorkingConditions.BigSalary,
-                Candidate.Properties.Wicked |
-                Candidate.Properties.Greedy),
+                     Firm.WorkingConditions.BigSalary,
+                     Candidate.Properties.Wicked | Candidate.Properties.Greedy),
             new Firm("Шаурмечка", Candidate.Properties.Smart,
-                Firm.WorkingConditions.CloseToHome,
-                Candidate.Properties.Greedy |
-                Candidate.Properties.Lazy)
+                     Firm.WorkingConditions.CloseToHome,
+                     Candidate.Properties.Greedy | Candidate.Properties.Lazy)
         };
 
         public Firm[] GetFirms()
@@ -38,16 +32,14 @@ namespace MainSolution.CandidatesAndFirms
             return _firms;
         }
 
-        public List<Firm> SearchByCriterion(Candidate.Properties? properties)
+        public List<Firm> SearchByCriterion(Candidate.Properties? propertiesCandidate)
         {
             var firms = new List<Firm>();
 
             foreach (var firm in _firms)
             {
-                var tmpD = firm.GetDesiredProperties() & properties;
-
-                if ((~properties & firm.GetUndesirableProperties()) == firm.GetUndesirableProperties()
-                    && tmpD == firm.GetDesiredProperties())
+                if ((~propertiesCandidate & firm.GetUndesirableProperties()) == firm.GetUndesirableProperties() &&
+                    (firm.GetDesiredProperties() & propertiesCandidate) == firm.GetDesiredProperties())
                     firms.Add(firm);
             }
 
