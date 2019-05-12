@@ -1,0 +1,58 @@
+<Window x:Class="MainSolution.Window.ForCompanyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Closing="ForCompanyWindow_OnClosing"
+        Title="ForCompanyWindow" Height="450" Width="800">
+    <Grid x:Name="SearchWorkersGrid" Visibility="Visible"
+          ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <GroupBox Header="Данные вашей фирмы" Margin="5" Padding="5">
+            <StackPanel>
+                <TextBlock Text="Название" />
+                <TextBox x:Name="NameFirmTextBox" />
+                <TextBlock Text="Условия работы" Margin="5" />
+                <CheckBox x:Name="ConvenientScheduleCheckBox"
+                          Content="Удобный график" Margin="5" />
+                <CheckBox x:Name="BigSalaryCheckBox"
+                          Content="Большая зарплата" Margin="5" />
+                <CheckBox x:Name="CloseToHomeCheckBox"
+                          Content="Близко к дому" Margin="5" />
+                <CheckBox x:Name="ComfortableOfficeCheckBox"
+                          Content="Комфортный офис" Margin="5" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="0" Header="Качества сотрудников"
+                  Margin="5" Padding="5">
+            <StackPanel>
+                <TextBlock Text="Необходимые качества:" Margin="2" />
+                <CheckBox x:Name="FSmartCheckBox" Content="Умный" Margin="2" />
+                <CheckBox x:Name="FKindCheckBox" Content="Добрый" Margin="2" />
+                <CheckBox x:Name="FWealthyCheckBox" Content="Богатый" Margin="2" />
+                <TextBlock Text="Отсутствие качеств:" Margin="2" />
+                <CheckBox x:Name="FLazyCheckBox" Content="Ленивый" Margin="2" />
+                <CheckBox x:Name="FGreedyCheckBox" Content="Жадный" Margin="2" />
+                <CheckBox x:Name="FWickedCheckBox" Content="Безнравственный" Margin="2" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="0" Grid.Column="1" Margin="5" Padding="5"
+                  Grid.RowSpan="2" Header="Список сотрудников">
+            <ListBox x:Name="CandidatesListBox" />
+        </GroupBox>
+        <Button Grid.Row="2" Grid.Column="0" Margin="10"
+                Content="Назад" Click="BackMenu_OnClick" />
+        <Button Grid.Row="2" Grid.Column="1" Margin="10"
+                Content="Поиск" />
+
+    </Grid>
+</Window>

@@ -4,98 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+        Closing="MainWindow_OnClosing"
         Title="MainWindow" Height="500" Width="550" ResizeMode="NoResize">
 
     <Grid>
-        <Grid x:Name="SearchFirmsGrid" Visibility="Collapsed" ShowGridLines="False">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
-            <GroupBox Header="Как вас зовут?" Margin="5" Padding="5"
-                      Grid.Row="0" Grid.Column="0">
-                <StackPanel>
-                    <TextBox x:Name="FNameTextBox" Text="Имя" />
-                    <TextBox x:Name="SNameTextBox" Text="Фамилия" />
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Анкета" Margin="5" Padding="5"
-                      Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
-                <StackPanel>
-                    <TextBlock Text="Отметьте свои положительные качества:" Margin="2" />
-                    <CheckBox x:Name="SmartCheckBox" Content="Умный" Margin="2" />
-                    <CheckBox x:Name="KindCheckBox" Content="Добрый" Margin="2" />
-                    <CheckBox x:Name="WealthyCheckBox" Content="Богатый" Margin="2" />
-                    <TextBlock Text="Отметьте свои отрицательные качества:" Margin="2" />
-                    <CheckBox x:Name="LazyCheckBox" Content="Ленивый" Margin="2" />
-                    <CheckBox x:Name="GreedyCheckBox" Content="Жадный" Margin="2" />
-                    <CheckBox x:Name="WickedCheckBox" Content="Безнравственный" Margin="2" />
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Список фирм" Margin="5" Padding="5"
-                      Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
-                <ListBox x:Name="FirmsListBox" />
-            </GroupBox>
-            <Button Grid.Row="3" Grid.Column="0" Margin="10"
-                    Content="Назад" Click="BackMenu_OnClick" />
-            <Button Grid.Row="3" Grid.Column="1" Margin="10"
-                    Content="Поиск" Click="SearchFirms_OnClick" />
-        </Grid>
-        <Grid x:Name="SearchWorkersGrid" Visibility="Collapsed" ShowGridLines="False">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
-            <GroupBox Header="Данные вашей фирмы" Margin="5" Padding="5">
-                <StackPanel>
-                    <TextBlock Text="Название" />
-                    <TextBox x:Name="NameFirmTextBox" />
-                    <TextBlock Text="Условия работы" Margin="5" />
-                    <CheckBox x:Name="ConvenientScheduleCheckBox"
-                              Content="Удобный график" Margin="5" />
-                    <CheckBox x:Name="BigSalaryCheckBox"
-                              Content="Большая зарплата" Margin="5" />
-                    <CheckBox x:Name="CloseToHomeCheckBox"
-                              Content="Близко к дому" Margin="5" />
-                    <CheckBox x:Name="ComfortableOfficeCheckBox"
-                              Content="Комфортный офис" Margin="5" />
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Grid.Row="1" Grid.Column="0" Header="Качества сотрудников"
-                      Margin="5" Padding="5">
-                <StackPanel>
-                    <TextBlock Text="Необходимые качества:" Margin="2" />
-                    <CheckBox x:Name="FSmartCheckBox" Content="Умный" Margin="2" />
-                    <CheckBox x:Name="FKindCheckBox" Content="Добрый" Margin="2" />
-                    <CheckBox x:Name="FWealthyCheckBox" Content="Богатый" Margin="2" />
-                    <TextBlock Text="Отсутствие качеств:" Margin="2" />
-                    <CheckBox x:Name="FLazyCheckBox" Content="Ленивый" Margin="2" />
-                    <CheckBox x:Name="FGreedyCheckBox" Content="Жадный" Margin="2" />
-                    <CheckBox x:Name="FWickedCheckBox" Content="Безнравственный" Margin="2" />
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Grid.Row="0" Grid.Column="1" Margin="5" Padding="5"
-                      Grid.RowSpan="2" Header="Список сотрудников">
-                <ListBox x:Name="CandidatesListBox" />
-            </GroupBox>
-            <Button Grid.Row="2" Grid.Column="0" Margin="10"
-                    Content="Назад" Click="BackMenu_OnClick" />
-            <Button Grid.Row="2" Grid.Column="1" Margin="10"
-                    Content="Поиск" Click="SearchCandidates_OnClick"/>
-
-        </Grid>
-        <Grid x:Name="MainGrid" Visibility="Visible">
+        <Grid x:Name="MainGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -105,7 +18,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Image Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
@@ -115,12 +28,18 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Content="Поиск работы"
-                    Click="DisplaySearchFirmsGrid_OnClick" />
+                    Click="ForEmployeeButtonBase_OnClick" />
             <Button Grid.Row="3" Grid.Column="2"
                     Grid.ColumnSpan="2"
                     Margin="10"
                     Content="Поиск работяг"
-                    Click="DisplaySearchWorkersGrid_OnClick" />
+                    Click="ForCompanyButton_OnClick" />
+            <Button Grid.Row="2" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2"
+                    Margin="10" 
+                    Content="Создать резюме"
+                    Click="CreateEmployee_OnClick"/>
         </Grid>
     </Grid>
 </Window>

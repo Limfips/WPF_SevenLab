@@ -1,6 +1,6 @@
 using System;
 
-namespace FirstProjectWpfApplication
+namespace MainSolution.InterimCods
 {
     public class Test
     {
@@ -15,7 +15,7 @@ namespace FirstProjectWpfApplication
             result = "Свойства персоны: " + str;
             pattern = DreamProperties.Богатый | DreamProperties.Умный;
             str = pattern.ToString();
-            result += "\nСвойства образца: " + str;
+            result += "\nСвойства образца: " + str;  
 
             var temp = person.Properties & pattern;
             bool query1, query2, query3, query4, query5;

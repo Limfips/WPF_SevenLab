@@ -4,54 +4,54 @@ namespace MainSolution.Logic
 {
     public interface IInquiryCandidate
     {
-        Candidate.Properties CAlgorithm();
+        Employee.Properties CAlgorithm();
     }
 
     public class AddSmart : IInquiryCandidate
     {
-        public Candidate.Properties CAlgorithm()
+        public Employee.Properties CAlgorithm()
         {
-            return Candidate.Properties.Smart;
+            return Employee.Properties.Smart;
         }
     }
 
     public class AddKind : IInquiryCandidate
     {
-        public Candidate.Properties CAlgorithm()
+        public Employee.Properties CAlgorithm()
         {
-            return Candidate.Properties.Kind;
+            return Employee.Properties.Kind;
         }
     }
 
     public class AddWealthy : IInquiryCandidate
     {
-        public Candidate.Properties CAlgorithm()
+        public Employee.Properties CAlgorithm()
         {
-            return Candidate.Properties.Wealthy;
+            return Employee.Properties.Wealthy;
         }
     }
 
     public class AddLazy : IInquiryCandidate
     {
-        public Candidate.Properties CAlgorithm()
+        public Employee.Properties CAlgorithm()
         {
-            return Candidate.Properties.Lazy;
+            return Employee.Properties.Lazy;
         }
     }
 
     public class AddGreedy : IInquiryCandidate
     {
-        public Candidate.Properties CAlgorithm()
+        public Employee.Properties CAlgorithm()
         {
-            return Candidate.Properties.Greedy;
+            return Employee.Properties.Greedy;
         }
     }
 
     public class AddWicked : IInquiryCandidate
     {
-        public Candidate.Properties CAlgorithm()
+        public Employee.Properties CAlgorithm()
         {
-            return Candidate.Properties.Wicked;
+            return Employee.Properties.Wicked;
         }
     }
 
@@ -69,7 +69,7 @@ namespace MainSolution.Logic
             _inquiryCandidate = inquiryCandidate;
         }
 
-        public Candidate.Properties? ExecuteOperation(Candidate.Properties? properties, bool? isCheckBox)
+        public Employee.Properties? ExecuteOperation(Employee.Properties? properties, bool? isCheckBox)
         {
             if (isCheckBox != true) return properties;
             if (properties != null) return properties | _inquiryCandidate.CAlgorithm();

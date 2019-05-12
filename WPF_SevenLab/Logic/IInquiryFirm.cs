@@ -6,6 +6,7 @@ namespace MainSolution.Logic
     {
         Firm.WorkingConditions FAlgorithm();
     }
+
     public class AddConvenientSchedule : IInquiryFirm
     {
         public Firm.WorkingConditions FAlgorithm()
@@ -13,6 +14,7 @@ namespace MainSolution.Logic
             return Firm.WorkingConditions.ConvenientSchedule;
         }
     }
+
     public class AddBigSalary : IInquiryFirm
     {
         public Firm.WorkingConditions FAlgorithm()
@@ -20,13 +22,15 @@ namespace MainSolution.Logic
             return Firm.WorkingConditions.BigSalary;
         }
     }
-    public class AddCloseToHome : IInquiryFirm
-    {
-        public Firm.WorkingConditions FAlgorithm()
-        {
-            return Firm.WorkingConditions.CloseToHome;
-        }
-    }
+
+//    public class AddCloseToHome : IInquiryFirm
+//    {
+//        public Firm.WorkingConditions FAlgorithm()
+//        {
+//            return Firm.WorkingConditions.CloseToHome;
+//        }
+//    }
+
     public class AddComfortableOffice : IInquiryFirm
     {
         public Firm.WorkingConditions FAlgorithm()
@@ -34,6 +38,7 @@ namespace MainSolution.Logic
             return Firm.WorkingConditions.ComfortableOffice;
         }
     }
+
     public class FRequest
     {
         private IInquiryFirm _inquiryFirm;

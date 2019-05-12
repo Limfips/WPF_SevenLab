@@ -7,19 +7,27 @@ namespace MainSolution.CandidatesAndFirms
         [Flags]
         public enum WorkingConditions
         {
-            ConvenientSchedule = 1,
-            BigSalary = 2,
-            CloseToHome = 4,
-            ComfortableOffice = 8
+            ConvenientSchedule = 1, //Удобный график 00000001+00000010 = 00000011
+            BigSalary = 2, //Большая зарплата      00000010
+            ComfortableOffice = 4, //Комфортный офис 00000100
+
+            TerribleWorkingConditions = 8, //Ужасные условия труда
+            NegativeTeam = 16, //Напряжённая обстановка в офисе
+            BadEquipment = 32 //Плохое оборудование
         }
 
         private readonly string _companyName;
-        private readonly Candidate.Properties _desiredProperties;
-        private readonly Candidate.Properties _undesirableProperties;
-        private readonly WorkingConditions? _propertiesFirm;
+        private readonly WorkingConditions? _propertiesFirm; //Свойства фирмы
+        private readonly Employee.Properties? _desiredProperties; //желаемые свойства работника
+        private readonly Employee.Properties? _undesirableProperties; //нежелательные свойства работника
 
-        public Firm(string companyName, Candidate.Properties desiredProperties,
-            WorkingConditions? propertiesFirm, Candidate.Properties undesirableProperties)
+        public Firm
+        (
+            string companyName,
+            Employee.Properties? desiredProperties = null,
+            WorkingConditions? propertiesFirm = null,
+            Employee.Properties? undesirableProperties = null
+        )
         {
             _companyName = companyName;
             _desiredProperties = desiredProperties;
@@ -32,17 +40,17 @@ namespace MainSolution.CandidatesAndFirms
             return _companyName;
         }
 
-        public Candidate.Properties GetDesiredProperties()
+        public Employee.Properties? GetDesiredProperties()
         {
             return _desiredProperties;
         }
 
-        public Candidate.Properties GetUndesirableProperties()
+        public Employee.Properties? GetUndesirableProperties()
         {
             return _undesirableProperties;
         }
 
-        public WorkingConditions? GetWorkingConditions()
+        public WorkingConditions? GetPropertiesFirm()
         {
             return _propertiesFirm;
         }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\
+D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\
 MainSolution
 none
 false
 DEBUG;TRACE
-E:\WPF_projects\FirstVersion\MainSolution\WPF_SevenLab\App.xaml
-11151548125
+D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\App.xaml
+42027297483
 
-111061793425
-10-1101574244
-MainWindow.xaml;
+15-376549188
+10523822325
+MainWindow.xaml;Window\ForCompanyWindow.xaml;Window\ForEmployeeWindow.xaml;Window\NewEmployeeWindow.xaml;
 
 False
 
