@@ -24,10 +24,10 @@
             <CheckBox x:Name="BigSalaryCheckBox" Content="Большая зарплата" Margin="2"/>
             <CheckBox x:Name="ComfortableOfficeCheckBox" Content="Комфортный офис" Margin="2"/>
             <CheckBox x:Name="TerribleWorkingConditionsCheckBox" Content="Ужасные условия труда" Margin="2"/>
-            <CheckBox x:Name="AbnegativeTeamCheckBox" Content="Напряжённая обстановка в офисе" Margin="2"/>
+            <CheckBox x:Name="NegativeTeamCheckBox" Content="Напряжённая обстановка в офисе" Margin="2"/>
             <CheckBox x:Name="BadEquipmentCheckBox" Content="Плохое оборудование" Margin="2"/>
         </StackPanel>
-        <Button x:Name="CreateNewEmployeeButton" Click="CreateNewEmployeeButton_OnClick"
+        <Button Click="CreateNewEmployee_OnClick"
             VerticalAlignment="Bottom" Content="Создать" Padding="10" Margin="10"/>
     </Grid>
 </Window>

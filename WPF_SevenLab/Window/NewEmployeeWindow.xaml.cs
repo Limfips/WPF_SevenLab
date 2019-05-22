@@ -7,10 +7,11 @@ namespace MainSolution.Window
 {
     public partial class NewEmployeeWindow
     {
-        private readonly WorkFile _workFile = new WorkFile(new Candidates().GetCandidates());
+        private readonly WorkFile _workFile = new WorkFile();
         public NewEmployeeWindow()
         {
             InitializeComponent();
+            
         }
 
         private void NewEmployeeWindow_OnClosing(object sender, CancelEventArgs e)
@@ -18,20 +19,20 @@ namespace MainSolution.Window
             var mainWindow = new MainWindow();
             mainWindow.Show();
         }
-        private void BackMenu_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
 
-        private void CreateNewEmployeeButton_OnClick(object sender, RoutedEventArgs e)
+        private void CreateNewEmployee_OnClick(object sender, RoutedEventArgs e)
         {
             if (FNameTextBox.Text != "" && SNameTextBox.Text != "")
             {
                 Employee.Properties? properties = GetProperties();
-                Firm.WorkingConditions? workingConditions = GetWorkingConditions();
-                Employee employee = new Employee(FNameTextBox.Text,SNameTextBox.Text,properties,workingConditions);
+                Firm.FirmConditions? desiredFirmConditions = GetDesiredWorkingConditions();
+                Firm.FirmConditions? undesirableFirmConditions = GetUndesirableWorkingConditions();
+                Employee employee = new Employee(FNameTextBox.Text,SNameTextBox.Text,
+                                                    properties,desiredFirmConditions,
+                                                    undesirableFirmConditions);
                 
                 _workFile.AddEmployee(employee);
+                MessageBox.Show("Ваша анкета отправлена");
             }
             else
             {
@@ -62,39 +63,47 @@ namespace MainSolution.Window
             if (properties != null) return properties | addProperties;
             return addProperties;
         }
-        private Firm.WorkingConditions? GetWorkingConditions()
+        private Firm.FirmConditions? GetDesiredWorkingConditions()
         {
-            Firm.WorkingConditions? workingConditions = null;
-            workingConditions = SetWorkingConditions(ConvenientScheduleCheckBox.IsChecked,
-                                                     workingConditions,
-                                 Firm.WorkingConditions.ConvenientSchedule);
-            workingConditions = SetWorkingConditions(BigSalaryCheckBox.IsChecked,
-                workingConditions,
-                Firm.WorkingConditions.BigSalary);
-            workingConditions = SetWorkingConditions(ComfortableOfficeCheckBox.IsChecked,
-                workingConditions,
-                Firm.WorkingConditions.ComfortableOffice);
-            workingConditions = SetWorkingConditions(TerribleWorkingConditionsCheckBox.IsChecked,
-                workingConditions,
-                Firm.WorkingConditions.TerribleWorkingConditions);
-            workingConditions = SetWorkingConditions(AbnegativeTeamCheckBox.IsChecked,
-                workingConditions,
-                Firm.WorkingConditions.NegativeTeam);
-            workingConditions = SetWorkingConditions(BadEquipmentCheckBox.IsChecked,
-                workingConditions,
-                Firm.WorkingConditions.BadEquipment);
-            return workingConditions;
+            Firm.FirmConditions? desiredFirmConditions = null;
+            
+            desiredFirmConditions = SetWorkingConditions(ConvenientScheduleCheckBox.IsChecked,
+                desiredFirmConditions,
+                                 Firm.FirmConditions.ConvenientSchedule);
+            desiredFirmConditions = SetWorkingConditions(BigSalaryCheckBox.IsChecked,
+                desiredFirmConditions,
+                Firm.FirmConditions.BigSalary);
+            desiredFirmConditions = SetWorkingConditions(ComfortableOfficeCheckBox.IsChecked,
+                desiredFirmConditions,
+                Firm.FirmConditions.ComfortableOffice);
+            return desiredFirmConditions;
         }
-        private Firm.WorkingConditions? SetWorkingConditions
+
+        private Firm.FirmConditions? GetUndesirableWorkingConditions()
+        {
+            Firm.FirmConditions? undesirableFirmConditions = null;
+            undesirableFirmConditions = SetWorkingConditions(TerribleWorkingConditionsCheckBox.IsChecked,
+                undesirableFirmConditions,
+                Firm.FirmConditions.TerribleWorkingConditions);
+            undesirableFirmConditions = SetWorkingConditions(NegativeTeamCheckBox.IsChecked,
+                undesirableFirmConditions,
+                Firm.FirmConditions.NegativeTeam);
+            undesirableFirmConditions = SetWorkingConditions(BadEquipmentCheckBox.IsChecked,
+                undesirableFirmConditions,
+                Firm.FirmConditions.BadEquipment);
+            return undesirableFirmConditions;
+        }
+
+        private Firm.FirmConditions? SetWorkingConditions
         (
             bool? isCheckBox, 
-            Firm.WorkingConditions? workingConditions,
-            Firm.WorkingConditions addWorkingConditions
+            Firm.FirmConditions? firmConditions,
+            Firm.FirmConditions addFirmConditions
         )
         {
-            if (isCheckBox == false ) return workingConditions;
-            if (workingConditions != null) return workingConditions | addWorkingConditions;
-            return addWorkingConditions;
+            if (isCheckBox == false ) return firmConditions;
+            if (firmConditions != null) return firmConditions | addFirmConditions;
+            return addFirmConditions;
         }
     }
 }

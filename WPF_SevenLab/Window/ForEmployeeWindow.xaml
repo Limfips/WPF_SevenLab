@@ -3,48 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:MainSolution.Window"
         mc:Ignorable="d"
         Closing="ForEmployeeWindow_OnClosing"
         Title="ForEmployeeWindow" Height="450" Width="800">
     <Grid x:Name="SearchFirmsGrid" Visibility="Visible" ShowGridLines="False">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition Height="50" />
-        </Grid.RowDefinitions>
-        <GroupBox Header="Как вас зовут?" Margin="5" Padding="5"
-                  Grid.Row="0" Grid.Column="0">
-            <StackPanel>
-                <TextBox x:Name="FNameTextBox" Text="Имя" />
-                <TextBox x:Name="SNameTextBox" Text="Фамилия" />
-            </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Выберите себя" VerticalAlignment="Center"
+                       Margin="5"/>
+            <ComboBox x:Name="EmployeeComboBox" Height="30" Width="150" Margin="5"/>
+            <TextBlock Text="Выберите фирму" VerticalAlignment="Center"
+                       Margin="5"/>
+            <ComboBox x:Name="FirmComboBox" Height="30" Width="150" Margin="5"/>
+            <Button Content="Поиск" Margin="5" Click="SearchFirms_OnClick"/>
+            <GroupBox Header="Инфо о фирме" Padding="5">
+                <TextBlock x:Name="FirmInfoTextBlock"/>
+            </GroupBox>
+        </StackPanel>
+        <GroupBox Grid.Column="1" Header="Список работников на прием" Padding="5">
+            <ListBox x:Name="RatingListBox"/>
         </GroupBox>
-        <GroupBox Header="Анкета" Margin="5" Padding="5"
-                  Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
-            <StackPanel>
-                <TextBlock Text="Отметьте свои положительные качества:" Margin="2" />
-                <CheckBox x:Name="SmartCheckBox" Content="Умный" Margin="2" />
-                <CheckBox x:Name="KindCheckBox" Content="Добрый" Margin="2" />
-                <CheckBox x:Name="WealthyCheckBox" Content="Богатый" Margin="2" />
-                <TextBlock Text="Отметьте свои отрицательные качества:" Margin="2" />
-                <CheckBox x:Name="LazyCheckBox" Content="Ленивый" Margin="2" />
-                <CheckBox x:Name="GreedyCheckBox" Content="Жадный" Margin="2" />
-                <CheckBox x:Name="WickedCheckBox" Content="Безнравственный" Margin="2" />
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Header="Список фирм" Margin="5" Padding="5"
-                  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
-            <ListBox x:Name="FirmsListBox" />
-        </GroupBox>
-        <Button Grid.Row="3" Grid.Column="0" Margin="10"
-                Content="Назад" Click="BackMenu_OnClick" />
-        <Button Grid.Row="3" Grid.Column="1" Margin="10"
-                Content="Поиск"/>
     </Grid>
 </Window>

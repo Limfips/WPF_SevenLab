@@ -32,7 +32,7 @@ namespace MainSolution.CandidatesAndFirms
                 "Богов",
                 Employee.Properties.Smart |
                 Employee.Properties.Lazy,
-                Firm.WorkingConditions.BigSalary
+                Firm.FirmConditions.BigSalary
             ),
             new Employee
             (
@@ -42,31 +42,52 @@ namespace MainSolution.CandidatesAndFirms
                 Employee.Properties.Kind
             )
         };
-        
+        public Candidates(){}
+
+        public Candidates(List<Employee> candidates)
+        {
+            _candidates = candidates;
+        }
 
         public List<Employee> GetCandidates()
         {
             return _candidates;
         }
+        
+        public List<Employee> GetRatingCandidates(Firm firm)
+        {
+            var suitableСandidates = new List<Employee>();
+            var possibleСandidates = new List<Employee>();
+            var unsuitableСandidates = new List<Employee>();
+            foreach (var candidate in _candidates)
+            {
+                var tempD = candidate.GetPropertiesCandidate() & firm.GetDesiredEmployeeProperties();
+                var tempU = candidate.GetPropertiesCandidate() & firm.GetUndesirableEmployeeProperties();
 
-//        public List<Employee> Search
-//        (
-//            Employee.Properties? desiredProperties,
-//            Employee.Properties? undesirableProperties,
-//            Firm.WorkingConditions? propertiesFirm
-//        )
-//        {
-//            var candidates = new List<Employee>();    
-//
-//            
-//            //ToDo Поработать над логикой  поиска работников
-//            foreach (var candidate in _candidates)
-//                if ((desiredProperties & candidate.GetPropertiesCandidate()) == desiredProperties &&
-//                    (propertiesFirm & candidate.GetPropertiesFirm()) == candidate.GetPropertiesFirm() &&
-//                    (~candidate.GetPropertiesCandidate() & undesirableProperties) == undesirableProperties)
-//                    candidates.Add(candidate);
-//
-//            return candidates;
-//        }
+                
+                if (tempD == firm.GetDesiredEmployeeProperties() && 
+                    (~candidate.GetPropertiesCandidate() & 
+                     firm.GetUndesirableEmployeeProperties()) == firm.GetUndesirableEmployeeProperties())
+                    //Если есть все нужные качества для фирмы и нет нежелательных
+                {
+                    suitableСandidates.Add(candidate);
+                }else if (tempU < firm.GetUndesirableEmployeeProperties() && tempD > 0)
+                    //Наличие некоторых нужных и не все отрицательные
+                {
+                    possibleСandidates.Add(candidate);
+                }
+                else
+                    //Ну тут вообще ужасно)))
+                {
+                    unsuitableСandidates.Add(candidate);
+                }
+            }
+            
+            var ratingCandidates = new List<Employee>();
+            ratingCandidates.AddRange(suitableСandidates);
+            ratingCandidates.AddRange(possibleСandidates);
+            ratingCandidates.AddRange(unsuitableСandidates);
+            return ratingCandidates;
+        }
     }
 }

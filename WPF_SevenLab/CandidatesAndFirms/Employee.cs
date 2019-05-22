@@ -21,20 +21,23 @@ namespace MainSolution.CandidatesAndFirms
         private readonly string _fName;
         private readonly string _sName;
         private readonly Properties? _propertiesCandidate; //Персональные качества
-        private readonly Firm.WorkingConditions? _workingConditions; //Требования от работы
+        private readonly Firm.FirmConditions? _desiredFirmConditions; //желаемые условия работы
+        private readonly Firm.FirmConditions? _undesirableFirmConditions; //нежелательные условия работы
 
         public Employee
         (
             string fName,
             string sName,
             Properties? propertiesCandidate = null,
-            Firm.WorkingConditions? propertiesFirm = null
+            Firm.FirmConditions? desiredFirmConditions = null,
+            Firm.FirmConditions? undesirableFirmConditions = null
         )
         {
             _fName = fName;
             _sName = sName;
             _propertiesCandidate = propertiesCandidate;
-            _workingConditions = propertiesFirm;
+            _desiredFirmConditions = desiredFirmConditions;
+            _undesirableFirmConditions = undesirableFirmConditions;
         }
 
         public string GetName()
@@ -47,9 +50,13 @@ namespace MainSolution.CandidatesAndFirms
             return _propertiesCandidate;
         }
 
-        public Firm.WorkingConditions? GetWorkingConditions()
+        public Firm.FirmConditions? GetDesiredFirmConditions()
         {
-            return _workingConditions;
+            return _desiredFirmConditions;
+        }
+        public Firm.FirmConditions? GetUndesirableFirmConditions()
+        {
+            return _undesirableFirmConditions;
         }
     }
 }

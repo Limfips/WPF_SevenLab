@@ -1,6 +1,6 @@
-&Уфасов Данил/Kind, Wealthy, Lazy/&
-&Умков Федор/Kind, Wealthy, Wicked/&
-&Богов Бог/Smart, Lazy/BigSalary&
-&Богов Бог/Smart, Kind/&
-&123123 21341/Wealthy/ComfortableOffice&
-&asdasd213 asdf213/Kind, Lazy/ComfortableOffice, NegativeTeam&
+Уфасов Данил/Kind, Wealthy, Lazy//
+Умков Федор/Kind, Wealthy, Wicked//
+Богов Бог/Smart, Lazy/BigSalary/
+Богов Бог/Smart, Kind//
+asdasda sadsadad/Smart, Kind/ConvenientSchedule/
+sadasdfgbdfgb12312 asddasd1234/Smart, Kind/BigSalary, ComfortableOffice/

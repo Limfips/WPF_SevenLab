@@ -31,7 +31,6 @@ D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_Sev
 D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.pdb
 D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\Window\ForCompanyWindow.g.cs
 D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\Window\ForEmployeeWindow.g.cs
-D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab_MarkupCompile.lref
 D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\Window\ForCompanyWindow.baml
 D:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\Window\ForEmployeeWindow.baml
 G:\RiderProjects\Lab7_1\FirstVersion\MainSolution\WPF_SevenLab\obj\Debug\WPF_SevenLab.csprojResolveAssemblyReference.cache

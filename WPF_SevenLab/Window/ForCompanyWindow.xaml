@@ -6,53 +6,22 @@
         mc:Ignorable="d"
         Closing="ForCompanyWindow_OnClosing"
         Title="ForCompanyWindow" Height="450" Width="800">
-    <Grid x:Name="SearchWorkersGrid" Visibility="Visible"
-          ShowGridLines="False">
+    <Grid x:Name="SearchWorkersGrid" ShowGridLines="False">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition Height="50" />
-        </Grid.RowDefinitions>
-        <GroupBox Header="Данные вашей фирмы" Margin="5" Padding="5">
-            <StackPanel>
-                <TextBlock Text="Название" />
-                <TextBox x:Name="NameFirmTextBox" />
-                <TextBlock Text="Условия работы" Margin="5" />
-                <CheckBox x:Name="ConvenientScheduleCheckBox"
-                          Content="Удобный график" Margin="5" />
-                <CheckBox x:Name="BigSalaryCheckBox"
-                          Content="Большая зарплата" Margin="5" />
-                <CheckBox x:Name="CloseToHomeCheckBox"
-                          Content="Близко к дому" Margin="5" />
-                <CheckBox x:Name="ComfortableOfficeCheckBox"
-                          Content="Комфортный офис" Margin="5" />
-            </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Выберите себя" VerticalAlignment="Center"
+                       Margin="5"/>
+            <ComboBox x:Name="EmployeeComboBox" Height="30" Width="150" Margin="5"/>
+            <Button Content="Поиск" Margin="5" Click="SearchWorkers_OnClick"/>
+            <GroupBox Header="Ваши данные" Padding="5">
+                <TextBlock x:Name="EmployeeInfoTextBlock"/>
+            </GroupBox>
+        </StackPanel>
+        <GroupBox Grid.Column="1" Header="Список подходящих фирм" Padding="5">
+            <ListBox x:Name="RatingListBox"/>
         </GroupBox>
-        <GroupBox Grid.Row="1" Grid.Column="0" Header="Качества сотрудников"
-                  Margin="5" Padding="5">
-            <StackPanel>
-                <TextBlock Text="Необходимые качества:" Margin="2" />
-                <CheckBox x:Name="FSmartCheckBox" Content="Умный" Margin="2" />
-                <CheckBox x:Name="FKindCheckBox" Content="Добрый" Margin="2" />
-                <CheckBox x:Name="FWealthyCheckBox" Content="Богатый" Margin="2" />
-                <TextBlock Text="Отсутствие качеств:" Margin="2" />
-                <CheckBox x:Name="FLazyCheckBox" Content="Ленивый" Margin="2" />
-                <CheckBox x:Name="FGreedyCheckBox" Content="Жадный" Margin="2" />
-                <CheckBox x:Name="FWickedCheckBox" Content="Безнравственный" Margin="2" />
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Grid.Row="0" Grid.Column="1" Margin="5" Padding="5"
-                  Grid.RowSpan="2" Header="Список сотрудников">
-            <ListBox x:Name="CandidatesListBox" />
-        </GroupBox>
-        <Button Grid.Row="2" Grid.Column="0" Margin="10"
-                Content="Назад" Click="BackMenu_OnClick" />
-        <Button Grid.Row="2" Grid.Column="1" Margin="10"
-                Content="Поиск" />
-
     </Grid>
 </Window>

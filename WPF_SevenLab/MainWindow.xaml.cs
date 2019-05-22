@@ -11,20 +11,21 @@ namespace MainSolution
     /// </summary>
     public partial class MainWindow
     {
-        private readonly WorkFile _workFile = new WorkFile(new Candidates().GetCandidates());
+        private readonly WorkFile _workFile = new WorkFile();
         public MainWindow()
         {
             InitializeComponent();
+            _workFile.StartWork();
         }
 
-        private void ForCompanyButton_OnClick(object sender, RoutedEventArgs e)
+        private void ForCompany_OnClick(object sender, RoutedEventArgs e)
         {
             Hide();
             var forCompanyWindow = new ForCompanyWindow();
             forCompanyWindow.Show();
         }
 
-        private void ForEmployeeButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ForEmployee_OnClick(object sender, RoutedEventArgs e)
         {
             Hide();
             var forEmployeeWindow = new ForEmployeeWindow();

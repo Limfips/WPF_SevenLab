@@ -5,34 +5,35 @@ namespace MainSolution.CandidatesAndFirms
     public class Firm
     {
         [Flags]
-        public enum WorkingConditions
+        public enum FirmConditions
         {
-            ConvenientSchedule = 1, //Удобный график 00000001+00000010 = 00000011
-            BigSalary = 2, //Большая зарплата      00000010
-            ComfortableOffice = 4, //Комфортный офис 00000100
+            ConvenientSchedule = 1, //Удобный график
+            BigSalary = 2, //Большая зарплата
+            ComfortableOffice = 4, //Комфортный офис
 
             TerribleWorkingConditions = 8, //Ужасные условия труда
             NegativeTeam = 16, //Напряжённая обстановка в офисе
             BadEquipment = 32 //Плохое оборудование
         }
 
+        
         private readonly string _companyName;
-        private readonly WorkingConditions? _propertiesFirm; //Свойства фирмы
-        private readonly Employee.Properties? _desiredProperties; //желаемые свойства работника
-        private readonly Employee.Properties? _undesirableProperties; //нежелательные свойства работника
+        private readonly FirmConditions? _propertiesFirm; //Свойства фирмы
+        private readonly Employee.Properties? _desiredEmployeeProperties; //желаемые свойства работника
+        private readonly Employee.Properties? _undesirableEmployeeProperties; //нежелательные свойства работника
 
         public Firm
         (
             string companyName,
-            Employee.Properties? desiredProperties = null,
-            WorkingConditions? propertiesFirm = null,
-            Employee.Properties? undesirableProperties = null
+            Employee.Properties? desiredEmployeeProperties = null,
+            FirmConditions? propertiesFirm = null,
+            Employee.Properties? undesirableEmployeeProperties = null
         )
         {
             _companyName = companyName;
-            _desiredProperties = desiredProperties;
+            _desiredEmployeeProperties = desiredEmployeeProperties;
             _propertiesFirm = propertiesFirm;
-            _undesirableProperties = undesirableProperties;
+            _undesirableEmployeeProperties = undesirableEmployeeProperties;
         }
 
         public string GetCompanyName()
@@ -40,17 +41,17 @@ namespace MainSolution.CandidatesAndFirms
             return _companyName;
         }
 
-        public Employee.Properties? GetDesiredProperties()
+        public Employee.Properties? GetDesiredEmployeeProperties()
         {
-            return _desiredProperties;
+            return _desiredEmployeeProperties;
         }
 
-        public Employee.Properties? GetUndesirableProperties()
+        public Employee.Properties? GetUndesirableEmployeeProperties()
         {
-            return _undesirableProperties;
+            return _undesirableEmployeeProperties;
         }
 
-        public WorkingConditions? GetPropertiesFirm()
+        public FirmConditions? GetPropertiesFirm()
         {
             return _propertiesFirm;
         }
