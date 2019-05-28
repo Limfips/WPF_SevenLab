@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using MainSolution.CandidatesAndFirms;
 using MainSolution.Logic;
@@ -11,11 +12,9 @@ namespace MainSolution
     /// </summary>
     public partial class MainWindow
     {
-        private readonly WorkFile _workFile = new WorkFile();
         public MainWindow()
         {
             InitializeComponent();
-            _workFile.StartWork();
         }
 
         private void ForCompany_OnClick(object sender, RoutedEventArgs e)
@@ -42,6 +41,13 @@ namespace MainSolution
             Hide();
             var newEmployeeWindow = new NewEmployeeWindow();
             newEmployeeWindow.Show();
+        }
+
+        private void CreateCompany_OnClick(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            var newCompanyWindow = new NewCompanyWindow();
+            newCompanyWindow.Show();
         }
     }
 }

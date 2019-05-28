@@ -7,7 +7,7 @@ namespace MainSolution.Window
 {
     public partial class NewEmployeeWindow
     {
-        private readonly WorkFile _workFile = new WorkFile();
+        private readonly HeadHunter _headHunter = new HeadHunter();
         public NewEmployeeWindow()
         {
             InitializeComponent();
@@ -24,14 +24,14 @@ namespace MainSolution.Window
         {
             if (FNameTextBox.Text != "" && SNameTextBox.Text != "")
             {
-                Employee.Properties? properties = GetProperties();
-                Firm.FirmConditions? desiredFirmConditions = GetDesiredWorkingConditions();
-                Firm.FirmConditions? undesirableFirmConditions = GetUndesirableWorkingConditions();
-                Employee employee = new Employee(FNameTextBox.Text,SNameTextBox.Text,
-                                                    properties,desiredFirmConditions,
+                Candidate.PropertiesList? properties = GetProperties();
+                Company.PropertiesList? desiredFirmConditions = GetDesiredWorkingConditions();
+                Company.PropertiesList? undesirableFirmConditions = GetUndesirableWorkingConditions();
+                Candidate candidate = new Candidate(FNameTextBox.Text+" "+SNameTextBox.Text,properties,desiredFirmConditions,
                                                     undesirableFirmConditions);
                 
-                _workFile.AddEmployee(employee);
+                _headHunter.AddCandidate(candidate);
+                _headHunter.HunterManager.SaveDataBaseCandidates(_headHunter.Candidates);
                 MessageBox.Show("Ваша анкета отправлена");
             }
             else
@@ -40,65 +40,65 @@ namespace MainSolution.Window
             }
         }
 
-        private Employee.Properties? GetProperties()
+        private Candidate.PropertiesList? GetProperties()
         {
-            Employee.Properties? properties = null;
-            properties = SetProperties(SmartCheckBox.IsChecked,properties,Employee.Properties.Smart);
-            properties = SetProperties(KindCheckBox.IsChecked,properties,Employee.Properties.Kind);
-            properties = SetProperties(WealthyCheckBox.IsChecked,properties,Employee.Properties.Wealthy);
-            properties = SetProperties(LazyCheckBox.IsChecked,properties,Employee.Properties.Lazy);
-            properties = SetProperties(GreedyCheckBox.IsChecked,properties,Employee.Properties.Greedy);
-            properties = SetProperties(WickedCheckBox.IsChecked,properties,Employee.Properties.Wicked);
+            Candidate.PropertiesList? properties = null;
+            properties = SetProperties(SmartCheckBox.IsChecked,properties,Candidate.PropertiesList.Smart);
+            properties = SetProperties(KindCheckBox.IsChecked,properties,Candidate.PropertiesList.Kind);
+            properties = SetProperties(WealthyCheckBox.IsChecked,properties,Candidate.PropertiesList.Wealthy);
+            properties = SetProperties(LazyCheckBox.IsChecked,properties,Candidate.PropertiesList.Lazy);
+            properties = SetProperties(GreedyCheckBox.IsChecked,properties,Candidate.PropertiesList.Greedy);
+            properties = SetProperties(WickedCheckBox.IsChecked,properties,Candidate.PropertiesList.Wicked);
             return properties;
         }
 
-        private Employee.Properties? SetProperties
+        private Candidate.PropertiesList? SetProperties
         (
             bool? isCheckBox,
-            Employee.Properties? properties,
-            Employee.Properties addProperties
+            Candidate.PropertiesList? properties,
+            Candidate.PropertiesList? addProperties
         )
         {
             if (isCheckBox == false) return properties;
             if (properties != null) return properties | addProperties;
             return addProperties;
         }
-        private Firm.FirmConditions? GetDesiredWorkingConditions()
+        private Company.PropertiesList? GetDesiredWorkingConditions()
         {
-            Firm.FirmConditions? desiredFirmConditions = null;
+            Company.PropertiesList? desiredFirmConditions = null;
             
             desiredFirmConditions = SetWorkingConditions(ConvenientScheduleCheckBox.IsChecked,
                 desiredFirmConditions,
-                                 Firm.FirmConditions.ConvenientSchedule);
+                Company.PropertiesList.ConvenientSchedule);
             desiredFirmConditions = SetWorkingConditions(BigSalaryCheckBox.IsChecked,
                 desiredFirmConditions,
-                Firm.FirmConditions.BigSalary);
+                Company.PropertiesList.BigSalary);
             desiredFirmConditions = SetWorkingConditions(ComfortableOfficeCheckBox.IsChecked,
                 desiredFirmConditions,
-                Firm.FirmConditions.ComfortableOffice);
+                Company.PropertiesList.ComfortableOffice);
             return desiredFirmConditions;
         }
 
-        private Firm.FirmConditions? GetUndesirableWorkingConditions()
+        private Company.PropertiesList? GetUndesirableWorkingConditions()
         {
-            Firm.FirmConditions? undesirableFirmConditions = null;
+            Company.PropertiesList? undesirableFirmConditions = null;
             undesirableFirmConditions = SetWorkingConditions(TerribleWorkingConditionsCheckBox.IsChecked,
                 undesirableFirmConditions,
-                Firm.FirmConditions.TerribleWorkingConditions);
+                Company.PropertiesList.TerribleWorkingConditions);
             undesirableFirmConditions = SetWorkingConditions(NegativeTeamCheckBox.IsChecked,
                 undesirableFirmConditions,
-                Firm.FirmConditions.NegativeTeam);
+                Company.PropertiesList.NegativeTeam);
             undesirableFirmConditions = SetWorkingConditions(BadEquipmentCheckBox.IsChecked,
                 undesirableFirmConditions,
-                Firm.FirmConditions.BadEquipment);
+                Company.PropertiesList.BadEquipment);
             return undesirableFirmConditions;
         }
 
-        private Firm.FirmConditions? SetWorkingConditions
+        private Company.PropertiesList? SetWorkingConditions
         (
             bool? isCheckBox, 
-            Firm.FirmConditions? firmConditions,
-            Firm.FirmConditions addFirmConditions
+            Company.PropertiesList? firmConditions,
+            Company.PropertiesList? addFirmConditions
         )
         {
             if (isCheckBox == false ) return firmConditions;

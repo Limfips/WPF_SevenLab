@@ -54,12 +54,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Logic\WorkFile.cs" />
+    <Compile Include="CandidatesAndFirms\WorkFile.cs" />
+    <Compile Include="Logic\Candidate.cs" />
+    <Compile Include="Logic\Company.cs" />
+    <Compile Include="Logic\HeadHunter.cs" />
+    <Compile Include="Logic\HunterManager.cs" />
     <Compile Include="Window\ForCompanyWindow.xaml.cs">
       <DependentUpon>ForCompanyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window\ForEmployeeWindow.xaml.cs">
       <DependentUpon>ForEmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\NewCompanyWindow.xaml.cs">
+      <DependentUpon>NewCompanyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window\NewEmployeeWindow.xaml.cs">
       <DependentUpon>NewEmployeeWindow.xaml</DependentUpon>
@@ -83,6 +90,7 @@
     </Compile>
     <Page Include="Window\ForCompanyWindow.xaml" />
     <Page Include="Window\ForEmployeeWindow.xaml" />
+    <Page Include="Window\NewCompanyWindow.xaml" />
     <Page Include="Window\NewEmployeeWindow.xaml" />
   </ItemGroup>
   <ItemGroup>

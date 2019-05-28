@@ -1,0 +1,51 @@
+<Window x:Class="MainSolution.Window.NewCompanyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:MainSolution.Window"
+        Closing="NewCompanyWindow_OnClosing"
+        mc:Ignorable="d"
+        Title="NewCompanyWindow" Height="335" Width="430" MinWidth="300" MinHeight="450">
+    <Grid ShowGridLines="True">
+        <StackPanel Margin="20">
+            <TextBlock Text="Введите название вашец компании"/>
+            <TextBox x:Name="FNameTextBox"/>
+            <TextBlock Text="Выберите качества, характеризующие вашу компанию"/>
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Положительные" Padding="5">
+                    <StackPanel>
+                        <CheckBox x:Name="ConvenientScheduleCheckBox" Content="Удобный график" Margin="2"/>
+                        <CheckBox x:Name="BigSalaryCheckBox" Content="Большая зарплата" Margin="2"/>
+                        <CheckBox x:Name="ComfortableOfficeCheckBox" Content="Комфортный офис" Margin="2"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Отрицательные" Padding="5">
+                    <StackPanel>
+                        <CheckBox x:Name="TerribleWorkingConditionsCheckBox" Content="Ужасные условия труда" Margin="2"/>
+                        <CheckBox x:Name="NegativeTeamCheckBox" Content="Напряжённая обстановка в офисе" Margin="2"/>
+                        <CheckBox x:Name="BadEquipmentCheckBox" Content="Плохое оборудование" Margin="2"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <TextBlock Text="Что вы ожидаете от кандидата?"/>
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Положительные" Padding="5">
+                    <StackPanel>
+                        <CheckBox x:Name="SmartCheckBox" Content="Умный" Margin="2" />
+                        <CheckBox x:Name="KindCheckBox" Content="Добрый" Margin="2" />
+                        <CheckBox x:Name="WealthyCheckBox" Content="Cостоятельный" Margin="2" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Отрицательные" Padding="5">
+                    <StackPanel>
+                        <CheckBox x:Name="LazyCheckBox" Content="Ленивый" Margin="2" />
+                        <CheckBox x:Name="GreedyCheckBox" Content="Жадный" Margin="2" />
+                        <CheckBox x:Name="WickedCheckBox" Content="Безнравственный" Margin="2" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <Button Click="CreateNewCompany_OnClick" Content="Создать" Padding="10" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>

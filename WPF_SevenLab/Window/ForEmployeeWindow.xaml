@@ -5,26 +5,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
         Closing="ForEmployeeWindow_OnClosing"
-        Title="ForEmployeeWindow" Height="450" Width="800">
+        Title="ForEmployeeWindow"  Height="530" Width="400" ResizeMode="NoResize">
     <Grid x:Name="SearchFirmsGrid" Visibility="Visible" ShowGridLines="False">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="Выберите себя" VerticalAlignment="Center"
-                       Margin="5"/>
-            <ComboBox x:Name="EmployeeComboBox" Height="30" Width="150" Margin="5"/>
             <TextBlock Text="Выберите фирму" VerticalAlignment="Center"
                        Margin="5"/>
-            <ComboBox x:Name="FirmComboBox" Height="30" Width="150" Margin="5"/>
+            <ComboBox x:Name="CompaniesComboBox" Height="30" Width="150" Margin="5"
+                      DropDownClosed="CompaniesComboBox_OnDropDownClosed"/>
             <Button Content="Поиск" Margin="5" Click="SearchFirms_OnClick"/>
             <GroupBox Header="Инфо о фирме" Padding="5">
-                <TextBlock x:Name="FirmInfoTextBlock"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" 
+                              VerticalScrollBarVisibility="Disabled">
+                <TextBlock x:Name="CompanyInfoTextBlock"/>
+                </ScrollViewer>
+            </GroupBox>
+            <GroupBox Header="Инфо о кандидате" Padding="5">
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" 
+                              VerticalScrollBarVisibility="Disabled">
+                <TextBlock x:Name="CandidateInfoTextBlock"/>
+                </ScrollViewer>
             </GroupBox>
         </StackPanel>
         <GroupBox Grid.Column="1" Header="Список работников на прием" Padding="5">
-            <ListBox x:Name="RatingListBox"/>
+            <ListBox x:Name="RatingListBox" MouseDoubleClick="RatingListBox_OnMouseDoubleClick"/>
         </GroupBox>
     </Grid>
 </Window>
