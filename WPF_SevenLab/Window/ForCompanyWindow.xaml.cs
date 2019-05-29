@@ -12,10 +12,14 @@ namespace MainSolution.Window
 {
     public partial class ForCompanyWindow : System.Windows.Window
     {
-        private readonly HeadHunter _headHunter = new HeadHunter();
+        private readonly HeadHunter _headHunter;
 
         public ForCompanyWindow()
         {
+            HunterManager hunterManager  = new HunterManager();
+            List<Candidate> candidates = hunterManager.LoadDataBaseCandidates();
+            List<Company> companies = hunterManager.LoadDataBaseCompanies();
+            _headHunter  = new HeadHunter(candidates, companies);
             InitializeComponent();
             foreach (var candidate in _headHunter.Candidates)
             {

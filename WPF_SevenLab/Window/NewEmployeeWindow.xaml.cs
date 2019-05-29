@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using MainSolution.CandidatesAndFirms;
@@ -7,9 +8,14 @@ namespace MainSolution.Window
 {
     public partial class NewEmployeeWindow
     {
-        private readonly HeadHunter _headHunter = new HeadHunter();
+        private readonly HeadHunter _headHunter;
+        private HunterManager hunterManager;
         public NewEmployeeWindow()
         {
+            hunterManager  = new HunterManager();
+            List<Candidate> candidates = hunterManager.LoadDataBaseCandidates();
+            List<Company> companies = hunterManager.LoadDataBaseCompanies();
+            _headHunter  = new HeadHunter(candidates, companies);
             InitializeComponent();
             
         }
@@ -31,7 +37,7 @@ namespace MainSolution.Window
                                                     undesirableFirmConditions);
                 
                 _headHunter.AddCandidate(candidate);
-                _headHunter.HunterManager.SaveDataBaseCandidates(_headHunter.Candidates);
+                hunterManager.SaveDataBaseCandidates(_headHunter.Candidates);
                 MessageBox.Show("Ваша анкета отправлена");
             }
             else

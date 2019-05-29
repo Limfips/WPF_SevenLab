@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using MainSolution.Logic;
@@ -6,9 +7,14 @@ namespace MainSolution.Window
 {
     public partial class NewCompanyWindow : System.Windows.Window
     {
-        private readonly HeadHunter _headHunter = new HeadHunter();
+        private readonly HeadHunter _headHunter;
+        HunterManager hunterManager;
         public NewCompanyWindow()
         {
+            hunterManager = new HunterManager();
+            List<Candidate> candidates = hunterManager.LoadDataBaseCandidates();
+            List<Company> companies = hunterManager.LoadDataBaseCompanies();
+            _headHunter  = new HeadHunter(candidates, companies);
             InitializeComponent();
         }
         private void NewCompanyWindow_OnClosing(object sender, CancelEventArgs e)
@@ -28,7 +34,7 @@ namespace MainSolution.Window
                     undesirableFirmConditions);
                 
                 _headHunter.AddCompany(company);
-                _headHunter.HunterManager.SaveDataBaseCompanies(_headHunter.Companies);
+                hunterManager.SaveDataBaseCompanies(_headHunter.Companies);
                 MessageBox.Show("Вы разместили свою компанию");
             }
             else

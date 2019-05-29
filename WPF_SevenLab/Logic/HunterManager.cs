@@ -12,9 +12,14 @@ namespace MainSolution.Logic
         private const string FilePathDataBaseCandidates = "Candidates.dat";
         private const string FilePathDataBaseCompanies = "Companies.dat";
 
-        private readonly BinaryFormatter _formatter = new BinaryFormatter();
+        private readonly BinaryFormatter _formatter;
 
-        
+
+        public HunterManager()
+        {
+            _formatter = new BinaryFormatter();
+        }
+
         /// <summary>
         /// Загрузить список кандидатов
         /// </summary>

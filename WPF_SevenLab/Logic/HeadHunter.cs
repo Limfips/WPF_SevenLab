@@ -8,12 +8,10 @@ namespace MainSolution.Logic
     {
         private List<Candidate> _candidates;
         private List<Company> _companies;
-        public readonly HunterManager HunterManager = new HunterManager();
 
-        public HeadHunter()
+        public HeadHunter() : this(new List<Candidate>(), new List<Company>())
         {
-            _candidates = HunterManager.LoadDataBaseCandidates();
-            _companies = HunterManager.LoadDataBaseCompanies();
+            
         }
 
         public HeadHunter(List<Candidate> candidates, List<Company> companies)
@@ -39,7 +37,21 @@ namespace MainSolution.Logic
 
         public void RemoveCompany(Company company)
         {
+            
             _companies.Remove(company);
+        }
+        
+        public void RemoveCompanyByName(string name)
+        {
+            
+//            _companies.Find(company => company.Name == name);
+            for (int i = 0; i < _companies.Count; i++)
+            {
+                if (_companies[i].Name.Equals(name))
+                {
+                    _companies.RemoveAt(i);
+                }
+            }
         }
 
         public List<Candidate> Candidates
@@ -58,6 +70,7 @@ namespace MainSolution.Logic
         {
             return _candidates.Find(candidate => candidate.Name == name);
         }
+        
         public Company GetCompany(string name)
         {
             return _companies.Find(company => company.Name == name);
